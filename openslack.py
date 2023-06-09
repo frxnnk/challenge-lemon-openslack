@@ -9,8 +9,7 @@ load_dotenv()
 TOKEN_USER = os.environ.get('TOKEN_USER')
 TOKEN_BOT = os.environ.get('TOKEN_BOT')
 KEY_OPENAI = os.environ.get('KEY_OPENAI')
-
-print(TOKEN_USER,TOKEN_BOT)
+CHANNEL_ID = os.environ.get('CHANNEL_ID')
 
 userClient = WebClient(TOKEN_USER)
 botClient = WebClient(TOKEN_BOT)
@@ -20,7 +19,7 @@ response = userClient.users_identity()
 user_id = response["user"]["id"]
 
 # Set the desired Slack channel ID and get channel name
-channel_id = "C05BK7F8UUT"
+channel_id = CHANNEL_ID
 channel_info = botClient.conversations_info(channel=channel_id)
 channel_name = channel_info["channel"]["name"]
 
